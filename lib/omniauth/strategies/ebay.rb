@@ -35,6 +35,16 @@ module OmniAuth
         }
       end
 
+      credentials do
+        {
+            :ebay_id => raw_info['UserID'],
+            :token => @auth_token,
+            :email => raw_info['Email'],
+            :full_name => raw_info["RegistrationAddress"] && raw_info["RegistrationAddress"]["Name"],
+            :country => raw_info["RegistrationAddress"] && raw_info["RegistrationAddress"]["Country"]
+        }
+      end
+
       extra do
         {
             :internal_return_to => request.params['internal_return_to'] || request.params[:internal_return_to]
