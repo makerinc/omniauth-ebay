@@ -28,7 +28,7 @@ module OmniAuth
       info do
         {
             :ebay_id => raw_info['UserID'],
-            :ebay_token => @auth_token,
+            :token => @auth_token,
             :email => raw_info['Email'],
             :full_name => raw_info["RegistrationAddress"] && raw_info["RegistrationAddress"]["Name"],
             :country => raw_info["RegistrationAddress"] && raw_info["RegistrationAddress"]["Country"]
